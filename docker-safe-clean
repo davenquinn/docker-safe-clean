@@ -1,0 +1,16 @@
+#!/bin/bash
+
+echo "Docker system prune (destroys containers but not data)"
+echo ""
+docker system prune
+
+echo ""
+echo "...more aggressive system prune (destroy images for non-running containers)"
+echo "   Only run this if you have a suitable network connection to re-download"
+echo "   your base images!"
+echo ""
+docker system prune -a
+
+echo "Volume cleanup:"
+sleep 1
+docker-clean-volumes $@
